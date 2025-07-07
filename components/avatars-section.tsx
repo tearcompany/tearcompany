@@ -85,7 +85,7 @@ const avatars: Avatar[] = [
     imageSrc: "/images/quetzalcoatl-avatar.png",
     name: "QUETZALCOATL",
     description: "A fire serpent that feeds on art.",
-    url: "/quetzalcoatl-experience",
+    url: "https://quetzalcoatl.tearcompany.com",
     glowColor: "gold",
   },
   {
