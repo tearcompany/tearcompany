@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { ExternalLink } from "lucide-react";
+import GlitchedBackground from "@/components/glitched-background";
 
 interface Avatar {
   imageSrc?: string;
@@ -118,12 +119,10 @@ export default function AvatarsSection() {
     <section className="min-h-screen flex flex-col items-center justify-center p-4 md:p-8 snap-start">
       <div className="w-full max-w-6xl animate-fade-in">
         <div className="text-center mb-12 md:mb-16">
-          <div className="p-6 md:p-8 shadow-divine border border-white/50 mb-8">
-            <h2 className="text-4xl md:text-6xl font-bold font-playfair bg-gradient-to-r from-divine-blue to-sacred-gold bg-clip-text text-transparent mb-4">
-              Living Avatars
-            </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-divine-blue to-sacred-gold mx-auto rounded-full"></div>
-          </div>
+          <h2 className="text-4xl md:text-6xl font-bold font-playfair bg-gradient-to-r from-divine-blue to-sacred-gold bg-clip-text text-transparent mb-4">
+            Living Avatars
+          </h2>
+          <div className="w-24 h-1 bg-gradient-to-r from-divine-blue to-sacred-gold mx-auto rounded-full"></div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
@@ -134,83 +133,85 @@ export default function AvatarsSection() {
               target={avatar.url.startsWith("/") ? "_self" : "_blank"}
               rel="noopener noreferrer"
               className={`group animate-scale-in ${
-                avatar.name === "MAR.i.A" ? "md:col-span-2 lg:col-span-3" : ""
+                avatar.name === "MAR.i.A"
+                  ? "md:col-span-2 lg:col-span-3 row-span-2"
+                  : ""
               }`}
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div
-                className={`bg-white/90 backdrop-blur-xl border border-white/60 rounded-2xl md:rounded-3xl p-4 md:p-6 shadow-holy hover:shadow-sacred transition-all duration-500 hover:scale-105 hover:bg-white/95 ${
-                  avatar.name === "MAR.i.A" ? "md:p-8 lg:p-12" : ""
-                }`}
-              >
-                <div className="flex flex-col items-center text-center">
-                  <div
-                    className={`relative mb-4 md:mb-6 rounded-full overflow-hidden border-4 transition-all duration-300 ${
-                      avatar.name === "MAR.i.A"
-                        ? "w-32 h-32 md:w-48 md:h-48 lg:w-64 lg:h-64"
-                        : "w-24 h-24 md:w-32 md:h-32"
-                    } ${
-                      avatar.glowColor === "gold"
-                        ? "border-sacred-gold/50 shadow-lg shadow-sacred-gold/20 group-hover:shadow-sacred-gold/40"
-                        : "border-divine-blue/50 shadow-lg shadow-divine-blue/20 group-hover:shadow-divine-blue/40"
-                    }`}
-                  >
-                    <Image
-                      src={avatar.imageSrc || "/placeholder.svg"}
-                      alt={avatar.name}
-                      layout="fill"
-                      objectFit="cover"
-                    />
+              {avatar.name === "MAR.i.A" ? (
+                <GlitchedBackground intensity="medium" color="digital">
+                  <div className="flex flex-col items-center text-center">
+                    <div className="relative mb-4 md:mb-6 rounded-full overflow-hidden border-4 transition-all duration-300 w-32 h-32 md:w-48 md:h-48 lg:w-64 lg:h-64 border-divine-blue/50 shadow-lg shadow-divine-blue/20 group-hover:shadow-divine-blue/40">
+                      <Image
+                        src={avatar.imageSrc || "/placeholder.svg"}
+                        alt={avatar.name}
+                        layout="fill"
+                        objectFit="cover"
+                      />
+                    </div>
+
+                    <h3 className="font-bold mb-3 font-playfair transition-all duration-300 text-2xl md:text-4xl lg:text-5xl text-gray-800 group-hover:text-divine-blue">
+                      {avatar.name}
+                    </h3>
+
+                    <p className="text-gray-600 mb-4 leading-relaxed text-base md:text-lg lg:text-xl">
+                      {avatar.description}
+                    </p>
+
+                    <div className="flex items-center font-medium group-hover:underline transition-all duration-300 text-base md:text-lg text-divine-blue">
+                      Visit thetear.net
+                      <ExternalLink className="ml-2 h-5 w-5" />
+                    </div>
                   </div>
-
-                  <h3
-                    className={`font-bold mb-3 font-playfair transition-all duration-300 ${
-                      avatar.name === "MAR.i.A"
-                        ? "text-2xl md:text-4xl lg:text-5xl"
-                        : "text-xl md:text-2xl"
-                    } ${
-                      avatar.glowColor === "gold"
-                        ? "text-gray-800 group-hover:text-sacred-gold"
-                        : "text-gray-800 group-hover:text-divine-blue"
-                    }`}
-                  >
-                    {avatar.name}
-                  </h3>
-
-                  <p
-                    className={`text-gray-600 mb-4 leading-relaxed ${
-                      avatar.name === "MAR.i.A"
-                        ? "text-base md:text-lg lg:text-xl"
-                        : "text-sm"
-                    }`}
-                  >
-                    {avatar.description}
-                  </p>
-
-                  <div
-                    className={`flex items-center font-medium group-hover:underline transition-all duration-300 ${
-                      avatar.name === "MAR.i.A"
-                        ? "text-base md:text-lg"
-                        : "text-sm"
-                    } ${
-                      avatar.glowColor === "gold"
-                        ? "text-sacred-gold"
-                        : "text-divine-blue"
-                    }`}
-                  >
-                    {avatar.url.startsWith("/")
-                      ? "Explore Experience"
-                      : avatar.name === "MAR.i.A"
-                      ? "Visit thetear.net"
-                      : "Visit Interface"}
-                    <ExternalLink
-                      className={`ml-2 ${
-                        avatar.name === "MAR.i.A" ? "h-5 w-5" : "h-4 w-4"
+                </GlitchedBackground>
+              ) : (
+                <div className="bg-white/90 backdrop-blur-xl border border-white/60 rounded-2xl md:rounded-3xl p-4 md:p-6 shadow-holy hover:shadow-sacred transition-all duration-500 hover:scale-105 hover:bg-white/95">
+                  <div className="flex flex-col items-center text-center">
+                    <div
+                      className={`relative mb-4 md:mb-6 rounded-full overflow-hidden border-4 transition-all duration-300 w-24 h-24 md:w-32 md:h-32 ${
+                        avatar.glowColor === "gold"
+                          ? "border-sacred-gold/50 shadow-lg shadow-sacred-gold/20 group-hover:shadow-sacred-gold/40"
+                          : "border-divine-blue/50 shadow-lg shadow-divine-blue/20 group-hover:shadow-divine-blue/40"
                       }`}
-                    />
+                    >
+                      <Image
+                        src={avatar.imageSrc || "/placeholder.svg"}
+                        alt={avatar.name}
+                        layout="fill"
+                        objectFit="cover"
+                      />
+                    </div>
+
+                    <h3
+                      className={`font-bold mb-3 font-playfair transition-all duration-300 text-xl md:text-2xl ${
+                        avatar.glowColor === "gold"
+                          ? "text-gray-800 group-hover:text-sacred-gold"
+                          : "text-gray-800 group-hover:text-divine-blue"
+                      }`}
+                    >
+                      {avatar.name}
+                    </h3>
+
+                    <p className="text-gray-600 mb-4 leading-relaxed text-sm">
+                      {avatar.description}
+                    </p>
+
+                    <div
+                      className={`flex items-center font-medium group-hover:underline transition-all duration-300 text-sm ${
+                        avatar.glowColor === "gold"
+                          ? "text-sacred-gold"
+                          : "text-divine-blue"
+                      }`}
+                    >
+                      {avatar.url.startsWith("/")
+                        ? "Explore Experience"
+                        : "Visit Interface"}
+                      <ExternalLink className="ml-2 h-4 w-4" />
+                    </div>
                   </div>
                 </div>
-              </div>
+              )}
             </a>
           ))}
         </div>

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import GlitchedBackground from "@/components/glitched-background";
 
 export default function HeroSection() {
   const [subtitles] = useState([
@@ -107,24 +108,26 @@ export default function HeroSection() {
 
         {/* Fading subtitle */}
         <div className="h-14 mb-8 flex items-center justify-center">
-          <p
-            className="text-2xl font-mono px-6 py-2 rounded-xl border border-gold-300/60 bg-white/60 shadow-md tracking-wide"
-            style={{
-              background: "linear-gradient(90deg, #fffbe6 90%, #fdf6c5 100%)",
-              color: "transparent",
-              backgroundClip: "text",
-              WebkitBackgroundClip: "text",
-              backgroundImage:
-                "linear-gradient(90deg, #bfa974 0%, #ffe9b2 80%, #cfc48c 100%)",
-              WebkitTextFillColor: "transparent",
-              textShadow: "0 1px 8px #fff7b2, 0 0 32px #e5c779",
-              fontWeight: 500,
-              opacity: fade ? 1 : 0,
-              transition: "opacity 0.4s cubic-bezier(.4,1.3,.5,1.1)",
-            }}
-          >
-            {subtitles[idx]}
-          </p>
+          <GlitchedBackground intensity="low" color="digital">
+            <p
+              className="text-2xl font-mono px-6 py-2 rounded-xl border border-gold-300/60 bg-white/60 shadow-md tracking-wide"
+              style={{
+                background: "linear-gradient(90deg, #fffbe6 90%, #fdf6c5 100%)",
+                color: "transparent",
+                backgroundClip: "text",
+                WebkitBackgroundClip: "text",
+                backgroundImage:
+                  "linear-gradient(90deg, #bfa974 0%, #ffe9b2 80%, #cfc48c 100%)",
+                WebkitTextFillColor: "transparent",
+                textShadow: "0 1px 8px #fff7b2, 0 0 32px #e5c779",
+                fontWeight: 500,
+                opacity: fade ? 1 : 0,
+                transition: "opacity 0.4s cubic-bezier(.4,1.3,.5,1.1)",
+              }}
+            >
+              {subtitles[idx]}
+            </p>
+          </GlitchedBackground>
         </div>
 
         <style jsx global>{`

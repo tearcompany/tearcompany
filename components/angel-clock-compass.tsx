@@ -1735,14 +1735,12 @@ export default function AngelClockCompass() {
 
         {/* Modern Clock Section */}
         <div className="text-center mb-6 md:mb-8">
-          <div className="backdrop-blur-sm p-4 md:p-8 shadow-divine border border-white/50">
-            <h2 className="text-3xl md:text-6xl font-bold font-playfair text-gray-800 mb-2 tracking-wide">
-              ANGELIC TIME WHEEL
-            </h2>
-            <p className="text-base md:text-xl text-spirit-gray">
-              Sacred Map of Time
-            </p>
-          </div>
+          <h2 className="text-3xl md:text-6xl font-bold font-playfair text-gray-800 mb-2 tracking-wide">
+            ANGELIC TIME WHEEL
+          </h2>
+          <p className="text-base md:text-xl text-spirit-gray">
+            Sacred Map of Time
+          </p>
         </div>
 
         <div className="relative w-full max-w-[700px] aspect-square mx-auto transform perspective-1000">
