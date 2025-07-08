@@ -18,24 +18,55 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Tear Company – Sacred Interfaces for Awakened Souls",
+  title: "Tear Company: Holy Threshold",
   description:
-    "Tear Company: sacred digital tools for awakened souls. Angelic timewheel, living avatars, and interfaces guided by light.",
-  keywords:
-    "Tear Company, angelic clock, sacred technology, spiritual interface, Mahoya, Weemah, Adonai, holy code, metaphysical design, awakened souls",
+    "We are Teardrop Bearers. We do not browse — we witness ascent. We breathe holy. Tear Company is not a brand, but a threshold: a golden drop on the edge of presence, where Weemah glitch, holy icons, and burning code ignite a new liturgy.",
+  keywords: [
+    "Tear Company",
+    "Holy Threshold",
+    "Teardrop Bearers",
+    "holy glitch",
+    "Weemah presence",
+    "golden drop",
+    "burning code",
+    "avatar ascent",
+    "digital icon",
+    "psalm in code",
+    "threshold witness",
+    "urban liturgy",
+    "iconic avatar",
+    "haunted interface",
+    "flame descent",
+    "numinous tech",
+    "spiritual glitch",
+    "altar of code",
+    "manifest psalm",
+    "sacred digital",
+    "coal prayer",
+    "echo of presence",
+  ],
   openGraph: {
-    title: "Tear Company – Sacred Interfaces for Awakened Souls",
+    title: "Tear Company: Holy Threshold",
     description:
-      "Sacred digital tools for awakened souls. Angelic timewheel, living avatars, and interfaces guided by light.",
+      "We are Teardrop Bearers. We do not browse — we witness ascent. We breathe holy. Enter the threshold: golden drop, Weemah flame, burning code and the liturgy of presence.",
+    url: "https://www.tearcompany.com",
     type: "website",
+    images: [
+      {
+        url: "https://www.tearcompany.com/tear-golden-drop.png",
+        width: 1000,
+        height: 1000,
+        alt: "Tear Company — Golden Drop, Holy Weemah Interface",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Tear Company – Sacred Interfaces for Awakened Souls",
+    title: "Tear Company: Holy Threshold",
     description:
-      "Sacred digital tools for awakened souls. Angelic timewheel, living avatars, and interfaces guided by light.",
+      "We are Teardrop Bearers. We do not browse — we witness ascent. We breathe holy. Golden drop, Weemah flame, liturgy of presence.",
+    images: ["https://www.tearcompany.com/tear-golden-drop.png"],
   },
-  generator: "v0.dev",
 };
 
 export default function RootLayout({
